@@ -17,6 +17,9 @@ const Header = () => {
           <li>
             <Cart />
           </li>
+          <li>
+            <button className = "logout-btn">Logout</button>{" "}
+          </li>
         </ul>
       </nav>
     </header>

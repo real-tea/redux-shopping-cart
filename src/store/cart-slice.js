@@ -29,9 +29,23 @@ const cartSlice = createSlice({
                 state.totalQuantity++;
             }
         },
-        setShowCart(state , actions){
-            state.showCart = false;
-        }
+        setShowCart(state ){
+            state.showCart = !state.showCart;
+        },
+
+        removeFromCart(state , action){
+            state.changed = true;
+            const id = action.payload;
+            const existingItem = state.itemList.find((item)=>item.id === id);
+
+            if(existingItem.quantity === 1){
+                state.itemList = state.itemList.filter((item)=>item.id!==id);
+                state.totalQuantity--;
+            }else{
+                existingItem.quantity --;
+                existingItem.totalPrice -= existingItem.price;
+            }
+        },
     }
 
 })
