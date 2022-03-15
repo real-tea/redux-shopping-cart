@@ -6,6 +6,8 @@ import Layout from "./components/Layout";
 
 function App() {
 
+  const cartItems = useSelector((state) => state.cart.itemList)
+  console.log(cartItems);
   const isLoggedIn = useSelector(state => state.auth.isLoggedin);
 
   // console.log(isLoggedIn);
